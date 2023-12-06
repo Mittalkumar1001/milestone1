@@ -1,0 +1,917 @@
+1.Password validator
+Write a javaScript program that checks if the entered password matches the confirmed password. If the password match, the program should log “Password Matched. Password validation Successful.”to the console. Otherwise, it should log “ Password didn’t match. Password validation unsuccessful” to the console.
+Ans-// Password Validator function
+function passwordValidator(password, confirmPassword) {
+    if (password === confirmPassword) {
+        console.log("Password Matched. Password validation Successful.");
+    } else {
+        console.log("Password didn't match. Password validation unsuccessful.");
+    }
+}
+
+// Example usage
+const enteredPassword = "yourPassword123";
+const confirmedPassword = "yourPassword123";
+
+// Call the passwordValidator function with the entered and confirmed passwords
+passwordValidator(enteredPassword, confirmedPassword);
+
+2.Calculator
+Create a javascript program that takes in two numbers and a string operator. Make use of a switch statement to perform the operation on the two numbers.
+The calculator function should;
+->Take in two numbers, num1,num2, and a  string representing a mathematical operator, operator.
+->Use a switch statement to determine which operation to perform based on the value of the operator.
+->If the operator is one of the four valid operators (+, -, *, /), perform the corresponding mathematical
+operation and store the result in a variable called result.
+->If the operator is not one of the valid operators, log "Invalid operator" to the console.
+Ans-// Calculator function
+function calculator(num1, num2, operator) {
+    let result;
+
+    switch (operator) {
+        case '+':
+            result = num1 + num2;
+            break;
+        case '-':
+            result = num1 - num2;
+            break;
+        case '*':
+            result = num1 * num2;
+            break;
+        case '/':
+            // Check if num2 is not zero to avoid division by zero
+            if (num2 !== 0) {
+                result = num1 / num2;
+            } else {
+                console.log("Error: Division by zero.");
+                return;
+            }
+            break;
+        default:
+            console.log("Invalid operator");
+            return;
+    }
+
+    console.log(`Result: ${result}`);
+}
+
+// Example usage
+const number1 = 10;
+const number2 = 5;
+const operation = '*';
+
+// Call the calculator function with the numbers and operator
+calculator(number1, number2, operation);
+3.Color Mixer
+Write a javascript program that takes in two strings representing colors and uses a switch statement to
+determine the resulting colors when the two colors are mixed. The program should print the resulting color
+based on the following criteria:
+If color1 is "red" and color2 is "blue" or vice versa, print "purple",
+If color1 is "red" and color2 is "yellow" or vice versa, print "orange".
+ If color1 is "blue" and `color2" is "yellow" or vice versa, print "green".
+If any other combination of colors is input, the program should print "Invalid color combination".
+Ans-// Color Mixer function
+function colorMixer(color1, color2) {
+    let resultingColor;
+
+    switch (`{color1.toLowerCase()}${color2.toLowerCase()}`) {
+        case 'redblue':
+        case 'bluered':
+            resultingColor = 'purple';
+            break;
+        case 'redyellow':
+        case 'yellowred':
+            resultingColor = 'orange';
+            break;
+        case 'blueyellow':
+        case 'yellowblue':
+            resultingColor = 'green';
+            break;
+        default:
+            resultingColor = 'Invalid color combination';
+            break;
+    }
+
+    console.log(resultingColor);
+}
+
+// Example usage
+const inputColor1 = 'red';
+const inputColor2 = 'blue';
+
+// Call the colorMixer function with the input colors
+colorMixer(inputColor1, inputColor2);
+4.Highest Marks
+A teacher wants to find out the highest marks scored by a student in a class of five students. The teacher enters
+the marks of all five students in an array called "marks". Write a program that iterates through the array and
+finds the highest marks scored #y any student in the class. The highest marks must then be displayed to the
+teacher using the console. Make sure you use the ternary operator to find the student with the highest marks.
+Ans-// Function to find the highest marks using the ternary operator
+function findHighestMarks(marks) {
+    let highestMarks = marks[0]; // Assume the first student has the highest marks initially
+
+    // Iterate through the array to find the student with the highest marks
+    for (let i = 1; i < marks.length; i++) {
+        highestMarks = marks[i] > highestMarks ? marks[i] : highestMarks;
+    }
+
+    return highestMarks;
+}
+
+// Example usage
+const studentMarks = [85, 92, 78, 95, 88];
+
+// Call the findHighestMarks function with the array of marks
+const highestMarks = findHighestMarks(studentMarks);
+
+// Display the result to the console
+console.log(`The highest marks in the class: {highestMarks}`);
+5.Capitalize
+You are building a form where users can enter their names. You want to make sure that the first letter of the
+name is always capitalized, even if the user forgets to do so. Write a program that takes in the user's name as a
+string and uses the ternary operator to check if the first letter is lowercase. If it is, the program capitalizes it and
+returns the modified string. Otherwise, it returns the original string without any changes.
+Ans-// Function to capitalize the first letter of a string
+function capitalizeName(name) {
+    // Check if the first letter is lowercase using the ternary operator
+    const modifiedName = name.charAt(0).toLowerCase() === name.charAt(0) 
+        ? name.charAt(0).toUpperCase() + name.slice(1)
+        : name;
+
+    return modifiedName;
+}
+
+// Example usage
+const userName = "john";
+
+// Call the capitalizeName function with the user's name
+const modifiedUserName = capitalizeName(userName);
+
+// Display the result to the console
+console.log(`Original name: {userName}`);
+console.log(`Modified name: {modifiedUserName}`);
+6.  Vowel Counter
+We want to count the number of vowels in a person's name. Given a name as input, the program should iterate
+through each character in the name, and check if it is a vowel or not. If the character is a vowel, it should be
+counted.
+Ans- // Function to count the number of vowels in a string
+function countVowels(name) {
+    // Convert the name to lowercase to simplify the vowel check
+    const lowercaseName = name.toLowerCase();
+
+    let vowelCount = 0;
+
+    // Iterate through each character in the name
+    for (let i = 0; i < lowercaseName.length; i++) {
+        // Check if the character is a vowel
+        if ('aeiou'.includes(lowercaseName.charAt(i))) {
+            vowelCount++;
+        }
+    }
+
+    return vowelCount;
+}
+
+// Example usage
+const personName = "John Doe";
+
+// Call the countVowels function with the person's name
+const numberOfVowels = countVowels(personName);
+
+// Display the result to the console
+console.log(`Number of vowels in "{personName}": {numberOfVowels}`);
+7. Remove Duplicates
+In an online shopping application, customers can add multiple items to their cart. However, sometimes
+customers accidentally add the same item more than once, resulting in duplicate items in their cart. The
+duplicate items not only make it difficult for the customer to track the items they want to purchase #ut also
+affect the accuracy of the purchase order.
+Ans-// Function to remove duplicates from an array
+function removeDuplicates(cart) {
+    // Use Set to store unique items
+    const uniqueCart = [...new Set(cart)];
+
+    return uniqueCart;
+}
+
+// Example usage
+const customerCart = ["item1", "item2", "item1", "item3", "item2", "item4"];
+
+// Call the removeDuplicates function with the customer's cart
+const uniqueCart = removeDuplicates(customerCart);
+
+// Display the result to the console
+console.log("Original Cart:", customerCart);
+console.log("Cart with Duplicates Removed:", uniqueCart);
+8.  Inverted right-angled triangle pattern with asterisks
+Write a program that takes an integer input i and prints an inverted right-angled triangle pattern of astetrisks
+with i rows.
+Inverted right-angled pattern:
+If i=6.
+Ans- // Function to print inverted right-angled triangle pattern
+function printInvertedTriangle(i) {
+    for (let row = i; row >= 1; row--) {
+        let pattern = '';
+
+        // Add spaces before asterisks
+        for (let space = i - row; space > 0; space--) {
+            pattern += ' ';
+        }
+
+        // Add asterisks
+        for (let asterisk = 1; asterisk <= row; asterisk++) {
+            pattern += '*';
+        }
+
+        // Print the row
+        console.log(pattern);
+    }
+}
+
+// Example usage
+const numberOfRows = 6;
+
+// Call the printInvertedTriangle function with the number of rows
+printInvertedTriangle(numberOfRows);
+9. Check for divisibility.
+Write a program that takes an array of numbers and prints all the numbers that are divisible by 3, but not by 2.
+Use a for loop and continue statement.
+Ans-// Function to print numbers divisible by 3 but not by 2
+function printDivisibleBy3NotBy2(numbers) {
+    for (let i = 0; i < numbers.length; i++) {
+        const currentNumber = numbers[i];
+
+        // Check if the number is divisible by 2
+        if (currentNumber % 2 === 0) {
+            continue; // Skip to the next iteration if divisible by 2
+        }
+
+        // Check if the number is divisible by 3
+        if (currentNumber % 3 === 0) {
+            console.log(currentNumber);
+        }
+    }
+}
+
+// Example usage
+const numbersArray = [1, 2, 3, 4, 5, 6, 9, 12, 15];
+
+// Call the printDivisibleBy3NotBy2 function with the array of numbers
+printDivisibleBy3NotBy2(numbersArray);
+10. Correct a bug
+You are working on an e-commerce website where customers can add items to their cart. The cart stores the
+quantity of each item that thd customer wants to purchase in an array of numbers. However, the website is
+currently experiencing a bug where the quantity of each item is being recorded incorrectly by reducing it to
+half. As a result, you need to write a JavaScript function that can double the quantity of each item in the cart
+array to correct the bug.
+Ans- // Function to double the quantity of each item in the cart
+function doubleCartQuantities(cart) {
+    // Using map to create a new array with doubled quantities
+    const correctedCart = cart.map(quantity => quantity * 2);
+
+    return correctedCart;
+}
+
+// Example usage
+const originalCart = [1, 2, 3, 4, 5];
+
+// Call the doubleCartQuantities function with the original cart
+const correctedCart = doubleCartQuantities(originalCart);
+
+// Display the result to the console
+console.log("Original Cart:", originalCart);
+console.log("Corrected Cart:", correctedCart);
+11. Unit converter
+A local weather station needs to convert temperature data collected in Celsius to Fahrenheit before displaying
+it on its website. They want a function that can convert Celsius to Fahrenheit accurately and efficiently. The
+function should take input in Celsius and return output in Fahrenheit. This function will help the weather station
+to provide temperature readings that are daily understandable to a wider audience.
+Ans- // Function to convert Celsius to Fahrenheit
+function celsiusToFahrenheit(celsius) {
+    // The formula to convert Celsius to Fahrenheit is: (Celsius * 9/5) + 32
+    const fahrenheit = (celsius * 9/5) + 32;
+    return fahrenheit;
+}
+
+// Example usage
+const celsiusTemperature = 25;
+
+// Call the celsiusToFahrenheit function with the temperature in Celsius
+const fahrenheitTemperature = celsiusToFahrenheit(celsiusTemperature);
+
+// Display the result to the console
+console.log(`${celsiusTemperature} degrees Celsius is equal to ${fahrenheitTemperature} degrees Fahrenheit.`);
+12.  Calculate rental cost
+A car rental company needs to calculate the cost of a rental based on the number of days rented and the type
+of car. They require a function that takes in the number of days rented and car type and returns the rental cost.
+The total cost would bd the rental cost multiplied by the number of days rented.
+The rental costs arc
+ Economy = Rs.4000 /- per days
+ Midsize = Rs. 10,000 /- per day.
+ Luxury = Rs. 20,000 /- per day.
+Ans- // Function to calculate rental cost
+function calculateRentalCost(daysRented, carType) {
+    let rentalCostPerDay;
+
+    // Set the rental cost per day based on the car type
+    switch (carType.toLowerCase()) {
+        case 'economy':
+            rentalCostPerDay = 4000;
+            break;
+        case 'midsize':
+            rentalCostPerDay = 10000;
+            break;
+        case 'luxury':
+            rentalCostPerDay = 20000;
+            break;
+        default:
+            console.log("Invalid car type");
+            return; // Exit the function if the car type is invalid
+    }
+
+    // Calculate the total rental cost
+    const totalRentalCost = rentalCostPerDay * daysRented;
+
+    return totalRentalCost;
+}
+
+// Example usage
+const daysRented = 5;
+const carType = 'midsize';
+
+// Call the calculateRentalCost function with the number of days rented and car type
+const totalCost = calculateRentalCost(daysRented, carType);
+
+// Display the result to the console
+if (totalCost !== undefined) {
+    console.log(`Total rental cost for ${daysRented} days of ${carType} car: Rs. ${totalCost}`);
+}
+13. Bill splitter
+A restaurant wants to calculate the total bill for a table based on the cost of each dish and the number of
+people sharing it. They require a function that takes in the cost of each dish and the number of people sharing
+it and returns an object that contains the total bill and the bill to be paid by each person in the group.
+Ans- // Function to calculate the total bill and bill per person
+function calculateTotalBill(costPerDish, numberOfPeople) {
+    // Calculate the total bill
+    const totalBill = costPerDish * numberOfPeople;
+
+    // Calculate the bill per person
+    const billPerPerson = totalBill / numberOfPeople;
+
+    // Create an object to store the results
+    const billDetails = {
+        totalBill: totalBill,
+        billPerPerson: billPerPerson
+    };
+
+    return billDetails;
+}
+
+// Example usage
+const costPerDish = 1500;
+const numberOfPeople = 4;
+
+// Call the calculateTotalBill function with the cost per dish and number of people
+const billInfo = calculateTotalBill(costPerDish, numberOfPeople);
+
+// Display the result to the console
+console.log(`Total Bill: Rs. ${billInfo.totalBill}`);
+console.log(`Bill per person: Rs. ${billInfo.billPerPerson}`);
+14.  Calculate the final order price
+A retail store needs to calculate the total cost of items in a customer's cart. A customer cart is an array of
+objects with unit price and quantity. Implement an arrow function to calculate the total cost of items, based on
+the unit price and quantity of each item.
+Ans- // Arrow function to calculate the total cost of items in a customer's cart
+const calculateTotalCost = (cart) => {
+    // Use the reduce function to calculate the total cost
+    const totalCost = cart.reduce((accumulator, currentItem) => {
+        // Calculate the cost of each item (unit price * quantity) and add it to the accumulator
+        return accumulator + (currentItem.unitPrice * currentItem.quantity);
+    }, 0); // Initialize accumulator with 0
+
+    return totalCost;
+};
+
+// Example usage
+const customerCart = [
+    { unitPrice: 20, quantity: 3 },
+    { unitPrice: 15, quantity: 2 },
+    { unitPrice: 10, quantity: 4 }
+];
+
+// Call the calculateTotalCost arrow function with the customer's cart
+const totalCost = calculateTotalCost(customerCart);
+
+// Display the result to the console
+console.log(`Total Cost of Items in the Cart: $${totalCost}`);
+15. Calculate the percentage of the discount
+A retail store is offering a discount on its products and wants to calculate the percentage of the discount to
+show customers how much they can save. Given the original price and the discounted price of a product,
+implement an arrow function to calculate the percentage of the discount rounded off to two decimal places.
+This function could be useful for the store's marketing team to create promotions and offers that attract
+customers.
+Ans- // Arrow function to calculate the percentage discount
+const calculatePercentageDiscount = (originalPrice, discountedPrice) => {
+    // Calculate the discount amount
+    const discountAmount = originalPrice - discountedPrice;
+
+    // Calculate the percentage discount
+    const percentageDiscount = (discountAmount / originalPrice) * 100;
+
+    // Round off the percentage discount to two decimal places
+    const roundedPercentageDiscount = Math.round(percentageDiscount * 100) / 100;
+
+    return roundedPercentageDiscount;
+};
+
+// Example usage
+const originalPrice = 100;
+const discountedPrice = 80;
+
+// Call the calculatePercentageDiscount arrow function with the original and discounted prices
+const percentageDiscount = calculatePercentageDiscount(originalPrice, discountedPrice);
+
+// Display the result to the console
+console.log(`Percentage Discount: ${percentageDiscount}%`);
+16. Generate a random number
+Create a JavaScript program that generates a random number between 1 and 100 when the program starts.
+Use a self-invoking arrow function to generate the random number. This program can be used as a component
+in various games or applications that require a random number generator.
+Ans- // Self-invoking arrow function to generate a random number between 1 and 100
+const randomGenerator = (() => {
+    // Calculate a random number between 1 and 100
+    const randomNumber = Math.floor(Math.random() * 100) + 1;
+
+    // Display the generated random number
+    console.log(`Generated Random Number: ${randomNumber}`);
+})();
+
+// The random number is generated and displayed as soon
+17. Build a banking application
+A banking application needs to manage customer accounts and transactions. The user detail is stored in an
+object with a keys name and balance. Write functions using object methods to update a customer's account
+balance based on a deposit or withdrawal.
+Ans- // Function to create a new account
+function createAccount(customerName, initialBalance) {
+    return {
+        name: customerName,
+        balance: initialBalance,
+    };
+}
+
+// Function to deposit money into an account
+function deposit(account, amount) {
+    if (amount > 0) {
+        account.balance += amount;
+        console.log(`Deposited Rs. ${amount}. New balance: Rs. ${account.balance}`);
+    } else {
+        console.log("Invalid deposit amount. Please deposit a positive amount.");
+    }
+}
+
+// Function to withdraw money from an account
+function withdraw(account, amount) {
+    if (amount > 0 && amount <= account.balance) {
+        account.balance -= amount;
+        console.log(`Withdrawn Rs. ${amount}. New balance: Rs. ${account.balance}`);
+    } else {
+        console.log("Invalid withdrawal amount or insufficient funds.");
+    }
+}
+
+// Function to check the account balance
+function checkBalance(account) {
+    console.log(`Account balance for ${account.name}: Rs. ${account.balance}`);
+}
+
+// Example usage
+const customerAccount = createAccount("John Doe", 5000);
+
+deposit(customerAccount, 2000);
+withdraw(customerAccount, 1500);
+checkBalance(customerAccount);
+18. Change Text on Button click.
+Create a simple HTML page with a heading and a button. The initial text must be “The most affordable learning
+platform”, use JavaScript to change the heading text to “PW Skills” when the button is clicked. The button must
+toggle the text of a heading between "The most affordable learning platform" and "PW Skills" on each click.
+Ans- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Change on Button Click</title>
+    <style>
+        /* Add some basic styling for better presentation */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="heading">The most affordable learning platform</h1>
+    <button onclick="toggleText()">Toggle Text</button>
+
+    <script>
+        // JavaScript function to toggle the heading text
+        function toggleText() {
+            const heading = document.getElementById("heading");
+
+            // Check the current text and toggle it
+            if (heading.textContent === "The most affordable learning platform") {
+                heading.textContent = "PW Skills";
+            } else {
+                heading.textContent = "The most affordable learning platform";
+            }
+        }
+    </script>
+
+</body>
+</html> 
+19. Validate Password
+You are building a login form for a website and need to validate user input using JavaScript. The form has two
+input fields: email and password, and a submit button.
+Your task is to implement JavaScript code that validates the email and password input fields. The email field
+should contain the "@" symbol. The password field should have a minimum length of 8 characters. If either of
+these conditions is not met, an error message “Invalid email or password!” should be displayed in red color as a
+paragraph text below the form. If the password is valid the message “Valid email and password!” must be
+displayed in green color as a paragraph text below the form.
+Your code should run when the user clicks the submit button and should prevent the form from submitting if
+the input is invalid. The input type of email must be text and the input type of password must be password
+without any minLength attribute specified.
+Ans- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form Validation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        form {
+            display: inline-block;
+            text-align: left;
+        }
+        input {
+            margin-bottom: 10px;
+            padding: 5px;
+            font-size: 16px;
+        }
+        p {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        .error {
+            color: red;
+        }
+        .success {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <form id="loginForm" onsubmit="validateForm(event)">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" required>
+
+        <br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <p id="resultMessage"></p>
+
+    <script>
+        // JavaScript function to validate the login form
+        function validateForm(event) {
+            // Prevent the form from submitting
+            event.preventDefault();
+
+            // Get email and password values from the form
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            // Validate email and password
+            const isValidEmail = email.includes("@");
+            const isValidPassword = password.length >= 8;
+
+            // Display result message
+            const resultMessage = document.getElementById("resultMessage");
+            if (isValidEmail && isValidPassword) {
+                resultMessage.textContent = "Valid email and password!";
+                resultMessage.className = "success";
+            } else {
+                resultMessage.textContent = "Invalid email or password!";
+                resultMessage.className = "error";
+            }
+        }
+    </script>
+
+</body>
+</html>
+21. TODO App
+Create a simple to-do app to add TODO items to the list through an input field and a button.
+Ans- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        input {
+            padding: 5px;
+            font-size: 16px;
+        }
+        button {
+            padding: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 5px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>TODO App</h1>
+
+    <input type="text" id="taskInput" placeholder="Enter a new task">
+    <button onclick="addTask()">Add Task</button>
+
+    <ul id="taskList"></ul>
+
+    <script>
+        // JavaScript function to add a new task to the list
+        function addTask() {
+            const taskInput = document.getElementById("taskInput");
+            const taskList = document.getElementById("taskList");
+
+            // Get the task text from the input field
+            const taskText = taskInput.value.trim();
+
+            // Check if the task text is not empty
+            if (taskText !== "") {
+                // Create a new list item
+                const newTask = document.createElement("li");
+                newTask.textContent = taskText;
+
+                // Add the new task to the task list
+                taskList.appendChild(newTask);
+
+                // Clear the input field after adding the task
+                taskInput.value = "";
+            }
+        }
+    </script>
+
+</body>
+</html>
+22.  Progress Bar
+Create a progress bar that fills up as the user scrolls down the page.
+Ans-<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Progress Bar</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        #progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: #f0f0f0;
+            z-index: 1000;
+        }
+        #progress-bar {
+            height: 100%;
+            width: 0;
+            background-color: #4caf50;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="progress-container">
+        <div id="progress-bar"></div>
+    </div>
+
+    <!-- Your page content goes here -->
+
+    <script>
+        document.addEventListener('scroll', function () {
+            // Get the scroll position in pixels
+            const scrollPosition = window.scrollY || document.documentElement.scrollTop;
+
+            // Get the total height of the page
+            const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+            // Calculate the scroll progress as a percentage
+            const scrollProgress = (scrollPosition / totalHeight) * 100;
+
+            // Update the width of the progress bar based on the scroll progress
+            document.getElementById('progress-bar').style.width = scrollProgress + '%';
+        });
+    </script>
+
+</body>
+</html>
+23. Change the color on click
+Create a button that utilizes an array of colors and the Math.random method to change the background color
+of the page upon clicking.
+Ans-<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Change Button</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            transition: background-color 0.5s ease;
+        }
+        button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <button onclick="changeBackgroundColor()">Change Color</button>
+
+    <script>
+        // Array of colors
+        const colors = ['#3498db', '#e74c3c', '#2ecc71', '#f39c12', '#9b59b6', '#1abc9c', '#d35400', '#34495e'];
+
+        // JavaScript function to change the background color randomly
+        function changeBackgroundColor() {
+            // Get a random color from the array
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+            // Change the background color of the body
+            document.body.style.backgroundColor = randomColor;
+        }
+    </script>
+
+</body>
+</html>
+24.Text Highlighting
+Using the Document Object Model (DOM), highlight all words in a paragraph element that are greater than 8
+characters. The highlighted words should be with a yellow background color.
+Ans-<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Highlighting</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+
+    <p id="paragraph">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae libero nec odio tincidunt
+        consectetur. Integer et lorem id quam congue vestibulum nec id orci. Vestibulum ante ipsum
+        primis in faucibus orci luctus et ultrices posuere cubilia Curae; Curabitur feugiat dapibus
+        nunc, nec facilisis tortor. Vivamus gravida, mauris at interdum eleifend, nisl dolor tincidunt
+        ex, id dapibus mauris urna vel elit. Sed eget accumsan libero. Nullam id justo vel velit
+        hendrerit rhoncus nec vel tellus. Sed eu bibendum mauris, vitae malesuada purus. Ut nec leo
+        auctor, lacinia elit ut, congue dui.
+    </p>
+
+    <script>
+        // JavaScript code to highlight words with more than 8 characters
+        const paragraph = document.getElementById('paragraph');
+        const words = paragraph.innerText.split(' ');
+
+        for (let i = 0; i < words.length; i++) {
+            const word = words[i].replace(/[.,;]/g, ''); // Remove punctuation for accurate word length
+            if (word.length > 8) {
+                const span = document.createElement('span');
+                span.className = 'highlight';
+                span.textContent = words[i] + ' ';
+                paragraph.replaceChild(span, paragraph.childNodes[i]);
+            }
+        }
+    </script>
+
+</body>
+</html>
+25.  Move the Image
+The objective is to write a JavaScript program that enables an image to move according to the direction
+specified by the arrow keys. The program must be able to recognize and respond to the input from the arrow
+keys, and accordingly, update the position of the image on the screen. The program should be able to handle
+the movement of the image in all directions, including up, down, left, and right, in a smooth and responsive
+manner. Have a look at the event key codes before starting the project.
+Ans-<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Move Image with Arrow Keys</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        #image {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            transition: transform 0.1s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="image"></div>
+
+    <script>
+        const image = document.getElementById('image');
+        let x = 0;
+        let y = 0;
+
+        // Function to update the image position
+        function updatePosition() {
+            image.style.transform = `translate(${x}px, ${y}px)`;
+        }
+
+        // Function to handle arrow key events
+        function handleArrowKeys(event) {
+            const step = 10; // Adjust the step size as needed
+
+            switch (event.key) {
+                case 'ArrowUp':
+                    y -= step;
+                    break;
+                case 'ArrowDown':
+                    y += step;
+                    break;
+                case 'ArrowLeft':
+                    x -= step;
+                    break;
+                case 'ArrowRight':
+                    x += step;
+                    break;
+            }
+
+            updatePosition();
+        }
+
+        // Event listener for arrow key events
+        document.addEventListener('keydown', handleArrowKeys);
+    </script>
+
+</body>
+</html>
